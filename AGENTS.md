@@ -33,14 +33,15 @@ npx serve out      # Serve the production export locally
   canonical + OG tags via `siteMetadata()` in `src/lib/site-shell.tsx`.
 - **Static export**: `next.config.ts` sets `output: "export"`,
   `trailingSlash: true`, `images.unoptimized`. `NEXT_PUBLIC_BASE_PATH`
-  env var sets basePath/assetPrefix (empty for the org site,
-  `/<repo>` for a project page).
+  env var sets basePath/assetPrefix — `/uvie-web` for the current
+  project page, `""` for the org site root.
 - **Theme**: light/dark via `.dark` class; inline script in the layout
   applies `localStorage["uvie-theme"]` (or OS preference) before paint.
 - **Logo**: `public/icon.png` copied from `uvie-mac/AppIcon.iconset/`.
 - **Deployment**: `.github/workflows/deploy.yml` builds and publishes
-  to GitHub Pages (org site `https://uvie-project.github.io`, so no
-  basePath). Requires Pages → Source: GitHub Actions in repo settings.
+  to GitHub Pages at `https://uvie-project.github.io/uvie-web/`
+  (project page, basePath `/uvie-web`). Requires Pages → Source:
+  GitHub Actions in repo settings.
 
 ## Conventions
 

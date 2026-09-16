@@ -29,12 +29,13 @@ npx serve out    # preview locally
 
 ## Deployment
 
-Deployed to **GitHub Pages** at https://uvie-project.github.io via
-`.github/workflows/deploy.yml` (push to `main`). Repo settings must
+Deployed to **GitHub Pages** at https://uvie-project.github.io/uvie-web/
+via `.github/workflows/deploy.yml` (push to `main`). Repo settings must
 have Pages → Build and deployment → Source: **GitHub Actions**.
 
-If this site ever moves to a project repo (`uvie-project.github.io/<repo>`),
-set `NEXT_PUBLIC_BASE_PATH=/<repo>` at build time.
+The build sets `NEXT_PUBLIC_BASE_PATH=/uvie-web` (project-page sub-path).
+When moving to the org site repo (`uvie-project.github.io` root), change
+it to `""` in the workflow.
 
 ## License
 

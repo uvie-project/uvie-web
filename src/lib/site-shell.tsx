@@ -50,6 +50,7 @@ export function SiteHtml({
 }
 
 export function siteMetadata(locale: Locale, dict: Dictionary): Metadata {
+  const siteUrl = `${SITE_URL}${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}`;
   return {
     metadataBase: new URL(SITE_URL),
     title: dict.meta.title,
@@ -66,7 +67,7 @@ export function siteMetadata(locale: Locale, dict: Dictionary): Metadata {
     openGraph: {
       title: dict.meta.title,
       description: dict.meta.description,
-      url: SITE_URL,
+      url: siteUrl,
       siteName: "UVie",
       locale: locale === "vi" ? "vi_VN" : "en_US",
       type: "website",

@@ -28,9 +28,9 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # Org site https://uvie-project.github.io — no sub-path.
-          # Set to "/<repo-name>" if deploying from a project repo.
-          NEXT_PUBLIC_BASE_PATH: ""
+          # Project page: https://uvie-project.github.io/uvie-web/
+          # Change to "" when serving from the org site repo (uvie-project.github.io).
+          NEXT_PUBLIC_BASE_PATH: "/uvie-web"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
