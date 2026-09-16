@@ -1,9 +1,52 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# AGENTS.md — uvie-web
 
-# This is NOT the Next.js you know
+Landing page for the UVie project (https://uvie-project.github.io).
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+## Stack
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+- **Next.js 16** (App Router, Turbopack) + TypeScript
+- **Tailwind CSS v4** (CSS-first config in `src/app/globals.css`)
+- **shadcn/ui** (radix base) — components in `src/components/ui/`
+- **motion** (`motion/react`) — SSR-safe scroll reveals
+- **lucide-react** — icons (note: no brand icons; GitHub logo is a local SVG in `src/components/github-icon.tsx`)
 
-<!-- END:nextjs-agent-rules -->
+## Commands
+
+```bash
+npm run dev        # Dev server
+npm run build      # Static export to out/ (output: "export")
+npm run lint       # ESLint
+npx serve out      # Serve the production export locally
+```
+
+## Architecture
+
+- **i18n**: no i18n lib. Two route groups with their own root layouts
+  (so `<html lang>` differs per locale):
+  - `src/app/(vi)/` → `/` — Vietnamese (primary, default)
+  - `src/app/(en)/en/` → `/en/`
+  - Dictionaries: `src/lib/i18n.ts` (`getDict(locale)`); `en: typeof vi`
+  keeps the two languages structurally in sync at compile time.
+- **SEO**: all text is rendered in server components; client components
+  (`motion.tsx` wrappers, typing demo) only animate around server-passed
+  children, so the exported HTML contains everything. hreflang +
+  canonical + OG tags via `siteMetadata()` in `src/lib/site-shell.tsx`.
+- **Static export**: `next.config.ts` sets `output: "export"`,
+  `trailingSlash: true`, `images.unoptimized`. `NEXT_PUBLIC_BASE_PATH`
+  env var sets basePath/assetPrefix (empty for the org site,
+  `/<repo>` for a project page).
+- **Theme**: light/dark via `.dark` class; inline script in the layout
+  applies `localStorage["uvie-theme"]` (or OS preference) before paint.
+- **Logo**: `public/icon.png` copied from `uvie-mac/AppIcon.iconset/`.
+- **Deployment**: `.github/workflows/deploy.yml` builds and publishes
+  to GitHub Pages (org site `https://uvie-project.github.io`, so no
+  basePath). Requires Pages → Source: GitHub Actions in repo settings.
+
+## Conventions
+
+- Vietnamese copy lives in `src/lib/i18n.ts` (`vi` dict) — keep `en`
+  structurally identical; TypeScript enforces it.
+- Internal links go through `href()` from `src/lib/site.ts` so a
+  sub-path deployment keeps working.
+- Animations must respect `prefers-reduced-motion` (the `Reveal`
+  wrappers already do via `useReducedMotion`).
