@@ -63,6 +63,21 @@ const vi = {
           "g thành ng, h thành nh: gõ đạg ra đặng, nhah ra nhạnh. Tuỳ chọn, mặc định tắt.",
       },
       {
+        title: "Sửa từ đã gõ",
+        description:
+          "Lùi con trỏ về một trong 8 từ gần nhất - kể cả vào giữa từ - rồi gõ phím dấu, từ được dựng lại ngay tại chỗ.",
+      },
+      {
+        title: "Esc trả lại chữ gốc",
+        description:
+          "Dấu lỡ đặt sai ý? Nhấn Escape để khôi phục đúng chuỗi phím đã gõ - viêt lại thành vieet.",
+      },
+      {
+        title: "Hiểu cả tiếng Anh",
+        description:
+          "Từ điển ~15 nghìn từ giữ nguyên chữ tiếng Anh - permission hay system không bị đổi thành tiếng Việt.",
+      },
+      {
         title: "Macro văn bản",
         description:
           "Đặt gõ tắt riêng cho mình - gõ mk ra mình không, dùng được ở mọi ứng dụng.",
@@ -238,6 +253,21 @@ const en: typeof vi = {
         title: "Relaxed coda",
         description:
           "g → ng, h → nh: type đạg instead of đặng, nhah instead of nhạnh. Optional, off by default.",
+      },
+      {
+        title: "Edit committed words",
+        description:
+          "Arrow back into any of the last 8 words - even mid-word - and type a tone key; the word re-renders in place.",
+      },
+      {
+        title: "Esc restores raw input",
+        description:
+          "Tone landed where you didn't mean it? Escape restores the exact keys you typed - viêt back to vieet.",
+      },
+      {
+        title: "Understands English",
+        description:
+          "A ~15k-word dictionary keeps English literal - permission and system stay English while Vietnamese still gets tones.",
       },
       {
         title: "Text macros",
