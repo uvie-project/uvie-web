@@ -33,6 +33,11 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
                     {dict.footer.macApp}
                   </a>
                 </li>
+                <li>
+                  <a className="transition-colors hover:text-foreground" href={LINKS.repoWin} target="_blank" rel="noopener noreferrer">
+                    {dict.footer.winApp}
+                  </a>
+                </li>
               </ul>
             </div>
             <div>

@@ -1,5 +1,4 @@
 import {
-  AppWindow,
   Check,
   Download,
   Feather,
@@ -51,8 +50,8 @@ const FEATURE_ICONS: LucideIcon[] = [
 ];
 
 // Platform icons for the roadmap cards (lucide has no brand logos):
-// Windows → app-window grid, Linux → terminal.
-const ROADMAP_ICONS: LucideIcon[] = [AppWindow, Terminal];
+// Linux → terminal.
+const ROADMAP_ICONS: LucideIcon[] = [Terminal];
 
 export function Features({ dict }: { dict: Dictionary }) {
   return (
@@ -207,8 +206,8 @@ export function DownloadSection({ dict }: { dict: Dictionary }) {
           ))}
         </StaggerGroup>
 
-        <Reveal className="mx-auto mt-10 max-w-3xl">
-          <div className="grid gap-5 sm:grid-cols-2">
+        <Reveal className="mx-auto mt-10 max-w-md">
+          <div className="grid gap-5">
             {dict.download.roadmap.map((item, i) => {
               const Icon = ROADMAP_ICONS[i] ?? Monitor;
               return (

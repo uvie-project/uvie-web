@@ -5,7 +5,7 @@ a fast, lightweight, open-source Vietnamese input method.
 
 - **uvie-rs** — the Rust input engine (Telex / VNI, `no_std`, zero deps)
 - **uvie-mac** — the macOS menu bar app
-- **uvie-win** — planned Windows port
+- **uvie-win** — the Windows app (Rust + WinUI 3)
 
 ## Stack
 

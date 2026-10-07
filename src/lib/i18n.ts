@@ -172,16 +172,29 @@ const vi = {
     roadmapLabel: "Sắp ra mắt",
     roadmap: [
       {
-        title: "UVie cho Windows",
-        description:
-          "Cùng engine uvie-rs, đang được phát triển cho Windows. Theo dõi tổ chức GitHub để nhận thông báo khi ra mắt.",
-      },
-      {
         title: "UVie cho Linux",
         description:
           "Hỗ trợ desktop Linux (X11/Wayland) cũng nằm trong kế hoạch. Theo dõi tổ chức GitHub để không bỏ lỡ.",
       },
     ],
+  },
+  windowsLaunch: {
+    badge: "Mới ra mắt",
+    title: "Chào mừng UVie for Windows 🎉",
+    subtitle:
+      "Cùng engine uvie-rs siêu tốc, nay đã chính thức có mặt trên Windows - viết bằng Rust và WinUI 3, gọn nhẹ và mã nguồn mở như bản macOS.",
+    cta: "Tải UVie for Windows",
+    ctaSecondary: "Xem mã nguồn",
+    note: "v0.1.1 • Windows 10/11 64-bit • Miễn phí & mã nguồn mở",
+    installNote:
+      "Giải nén và chạy uvie-win.exe - icon UVie sẽ hiện trên khay hệ thống. Cài thêm Windows App SDK Runtime để mở cửa sổ cài đặt.",
+    bullets: [
+      "Telex & VNI đầy đủ",
+      "Macro văn bản",
+      "Nhớ ngôn ngữ theo app",
+      "Tương thích app Chromium",
+    ],
+    screenshotAlt: "Cửa sổ cài đặt UVie for Windows",
   },
   footer: {
     tagline: "Bộ gõ tiếng Việt mã nguồn mở - vận hành bởi engine Rust uvie-rs.",
@@ -189,6 +202,7 @@ const vi = {
     resources: "Tài nguyên",
     engine: "uvie-rs - Engine Rust",
     macApp: "uvie-mac - Ứng dụng macOS",
+    winApp: "uvie-win - Ứng dụng Windows",
     releases: "Bản phát hành",
     issues: "Báo lỗi",
     license: "MIT OR Apache-2.0",
@@ -364,16 +378,29 @@ const en: typeof vi = {
     roadmapLabel: "Coming soon",
     roadmap: [
       {
-        title: "UVie for Windows",
-        description:
-          "Same uvie-rs engine, now in development for Windows. Watch the GitHub org to get notified at launch.",
-      },
-      {
         title: "UVie for Linux",
         description:
           "Desktop Linux support (X11/Wayland) is on the roadmap. Watch the GitHub org to get notified.",
       },
     ],
+  },
+  windowsLaunch: {
+    badge: "Just launched",
+    title: "Welcome UVie for Windows 🎉",
+    subtitle:
+      "The same ultra-fast uvie-rs engine, now officially on Windows - built in Rust with WinUI 3, as light and open as the macOS app.",
+    cta: "Download UVie for Windows",
+    ctaSecondary: "View source",
+    note: "v0.1.1 • Windows 10/11 64-bit • Free & open source",
+    installNote:
+      "Unzip and run uvie-win.exe - the UVie icon appears in the system tray. Install the Windows App SDK Runtime to open the settings window.",
+    bullets: [
+      "Full Telex & VNI",
+      "Text macros",
+      "Per-app language memory",
+      "Chromium app compatible",
+    ],
+    screenshotAlt: "UVie for Windows settings window",
   },
   footer: {
     tagline: "Open-source Vietnamese input method, powered by the uvie-rs Rust engine.",
@@ -381,6 +408,7 @@ const en: typeof vi = {
     resources: "Resources",
     engine: "uvie-rs - Rust engine",
     macApp: "uvie-mac - macOS app",
+    winApp: "uvie-win - Windows app",
     releases: "Releases",
     issues: "Issue tracker",
     license: "MIT OR Apache-2.0",
