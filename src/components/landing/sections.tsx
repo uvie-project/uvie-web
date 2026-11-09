@@ -5,15 +5,12 @@ import {
   Globe,
   Keyboard,
   Languages,
-  Monitor,
   Sparkles,
-  Terminal,
   Timer,
   Wand2,
   Zap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
@@ -49,9 +46,6 @@ const FEATURE_ICONS: LucideIcon[] = [
   Feather,
 ];
 
-// Platform icons for the roadmap cards (lucide has no brand logos):
-// Linux → terminal.
-const ROADMAP_ICONS: LucideIcon[] = [Terminal];
 
 export function Features({ dict }: { dict: Dictionary }) {
   return (
@@ -205,32 +199,6 @@ export function DownloadSection({ dict }: { dict: Dictionary }) {
             </StaggerItem>
           ))}
         </StaggerGroup>
-
-        <Reveal className="mx-auto mt-10 max-w-md">
-          <div className="grid gap-5">
-            {dict.download.roadmap.map((item, i) => {
-              const Icon = ROADMAP_ICONS[i] ?? Monitor;
-              return (
-                <Card key={item.title} className="border-dashed">
-                  <CardContent className="flex items-start gap-4 p-6">
-                    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <Icon className="size-5 text-muted-foreground" />
-                    </span>
-                    <div>
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h3 className="font-heading font-bold">{item.title}</h3>
-                        <Badge variant="outline">{dict.download.roadmapLabel}</Badge>
-                      </div>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </Reveal>
       </div>
     </section>
   );

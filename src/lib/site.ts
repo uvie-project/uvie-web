@@ -5,8 +5,13 @@ export const LINKS = {
   repoMac: "https://github.com/uvie-project/uvie-mac",
   repoRs: "https://github.com/uvie-project/uvie-rs",
   repoWin: "https://github.com/uvie-project/uvie-win",
+  repoLinux: "https://github.com/uvie-project/uvie-linux",
   releases: "https://github.com/uvie-project/uvie-mac/releases",
   releasesWin: "https://github.com/uvie-project/uvie-win/releases",
+  releasesLinux: "https://github.com/uvie-project/uvie-linux/releases",
+  linuxDownload:
+    "https://github.com/uvie-project/uvie-linux/releases/latest/download/uvie-for-linux-x86_64.tar.gz",
+  aptRepo: "https://uvie-project.github.io/uvie-linux",
   winDownload:
     "https://github.com/uvie-project/uvie-win/releases/latest/download/uvie-for-windows-x86_64.zip",
   issues: "https://github.com/uvie-project/uvie-mac/issues",

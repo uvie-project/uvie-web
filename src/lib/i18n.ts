@@ -9,11 +9,11 @@ export const LOCALE_PATH: Record<Locale, string> = {
 const vi = {
   htmlLang: "vi",
   meta: {
-    title: "UVie - Bộ gõ tiếng Việt nhanh, nhẹ và chuẩn cho macOS",
+    title: "UVie - Bộ gõ tiếng Việt nhanh, nhẹ và chuẩn cho mọi hệ điều hành",
     description:
-      "Bộ gõ tiếng Việt mã nguồn mở cho macOS, vận hành bởi engine Rust siêu tốc: đủ Telex & VNI, dấu thanh chuẩn mới, macro, tự nhớ ngôn ngữ theo từng app. Nhẹ dưới 2 MB, cài chưa tới một phút.",
+      "Bộ gõ tiếng Việt mã nguồn mở cho macOS, Windows và Linux, vận hành bởi engine Rust siêu tốc: đủ Telex & VNI, dấu thanh chuẩn mới, macro, tự nhớ ngôn ngữ theo từng app. Nhẹ dưới 2 MB, cài chưa tới một phút.",
     keywords:
-      "bộ gõ tiếng Việt, macOS, Telex, VNI, Vietnamese input method, bộ gõ macOS, UVie",
+      "bộ gõ tiếng Việt, macOS, Windows, Linux, Telex, VNI, Vietnamese input method, UVie",
   },
   nav: {
     features: "Tính năng",
@@ -26,10 +26,10 @@ const vi = {
     title: "Gõ tiếng Việt",
     titleHighlight: "nhanh như nghĩ",
     subtitle:
-      "Bộ gõ tiếng Việt cho macOS với engine Rust siêu tốc - mỗi phím chỉ tốn chưa tới một micro giây. Nhẹ, chuẩn chính tả, và không bao giờ làm bạn phải chờ.",
-    ctaDownload: "Tải cho macOS",
+      "Bộ gõ tiếng Việt cho macOS, Windows và Linux với engine Rust siêu tốc - mỗi phím chỉ tốn chưa tới một micro giây. Nhẹ, chuẩn chính tả, và không bao giờ làm bạn phải chờ.",
+    ctaDownload: "Tải UVie",
     ctaGithub: "Xem trên GitHub",
-    ctaNote: "macOS 13+ • Apple Silicon & Intel • Miễn phí",
+    ctaNote: "macOS 13+ • Windows 10/11 • Debian/Ubuntu & mọi distro • Miễn phí",
     demoLabel: "Trải nghiệm trực tiếp",
     demoHint: "Engine xử lý từng phím gõ ngay tại chỗ",
   },
@@ -169,14 +169,34 @@ const vi = {
           "Icon V / E hiện lên menu bar. Nhấn nhanh Fn để đổi Anh/Việt.",
       },
     ],
-    roadmapLabel: "Sắp ra mắt",
-    roadmap: [
-      {
-        title: "UVie cho Linux",
-        description:
-          "Hỗ trợ desktop Linux (X11/Wayland) cũng nằm trong kế hoạch. Theo dõi tổ chức GitHub để không bỏ lỡ.",
-      },
+  },
+  linuxLaunch: {
+    badge: "Đã ra mắt",
+    title: "UVie for Linux",
+    subtitle:
+      "Cùng engine uvie-rs siêu tốc trên Linux - ba đường tích hợp cho mọi môi trường: daemon evdev độc lập, IBus engine và Fcitx5 addon. Chọn một - đừng bật đồng thời.",
+    cta: "Xem hướng dẫn apt repo",
+    ctaSecondary: "Xem mã nguồn",
+    note: "v1.2.0 • Debian/Ubuntu qua apt, mọi distro khác qua tarball",
+    pathsLabel: "Chọn 1 trong 3 đường",
+    paths: [
+      { name: "uvie", desc: "daemon + settings UI - chạy độc lập, không cần IM framework" },
+      { name: "ibus-uvie", desc: "IBus engine - mặc định trên Ubuntu/GNOME" },
+      { name: "fcitx5-uvie", desc: "Fcitx5 addon" },
     ],
+    debianTitle: "Debian / Ubuntu / Mint - qua apt",
+    debianSteps: [
+      "curl -fsSL https://uvie-project.github.io/uvie-linux/uvie-repo-key.asc | sudo gpg --dearmor -o /usr/share/keyrings/uvie.gpg",
+      "echo \"deb [signed-by=/usr/share/keyrings/uvie.gpg] https://uvie-project.github.io/uvie-linux stable main\" | sudo tee /etc/apt/sources.list.d/uvie.list",
+      "sudo apt update && sudo apt install uvie   # hoặc ibus-uvie / fcitx5-uvie",
+    ],
+    otherTitle: "Distro khác (Fedora, Arch, ...) - tarball",
+    otherSteps: [
+      "tar -xzf uvie-for-linux-x86_64.tar.gz",
+      "cd uvie-for-linux-x86_64 && ./install.sh",
+    ],
+    footnote:
+      "Daemon cần quyền /dev/uinput và nhóm input (xem README). Sau khi cài ibus-uvie/fcitx5-uvie, restart IBus/Fcitx5 để framework nhận engine.",
   },
   windowsLaunch: {
     badge: "Mới ra mắt",
@@ -185,9 +205,9 @@ const vi = {
       "Cùng engine uvie-rs siêu tốc, nay đã chính thức có mặt trên Windows - viết bằng Rust và WinUI 3, gọn nhẹ và mã nguồn mở như bản macOS.",
     cta: "Tải UVie for Windows",
     ctaSecondary: "Xem mã nguồn",
-    note: "v0.1.1 • Windows 10/11 64-bit • Miễn phí & mã nguồn mở",
+    note: "v1.3.1 • Windows 10/11 64-bit • Miễn phí & mã nguồn mở",
     installNote:
-      "Giải nén và chạy uvie-win.exe - icon UVie sẽ hiện trên khay hệ thống. Cài thêm Windows App SDK Runtime để mở cửa sổ cài đặt.",
+      "Cài qua uvie-win-x64-setup.exe, hoặc giải nén zip và chạy uvie-win.exe - icon UVie sẽ hiện trên khay hệ thống. Gói cài đã self-contained, không cần thêm runtime nào.",
     bullets: [
       "Telex & VNI đầy đủ",
       "Macro văn bản",
@@ -203,6 +223,7 @@ const vi = {
     engine: "uvie-rs - Engine Rust",
     macApp: "uvie-mac - Ứng dụng macOS",
     winApp: "uvie-win - Ứng dụng Windows",
+    linuxApp: "uvie-linux - Ứng dụng Linux",
     releases: "Bản phát hành",
     issues: "Báo lỗi",
     license: "MIT OR Apache-2.0",
@@ -215,11 +236,11 @@ const vi = {
 const en: typeof vi = {
   htmlLang: "en",
   meta: {
-    title: "UVie - Fast, lightweight & accurate Vietnamese input for macOS",
+    title: "UVie - Fast, lightweight & accurate Vietnamese input for every OS",
     description:
-      "Open-source Vietnamese input method for macOS powered by an ultra-fast Rust engine: Telex & VNI, modern tone placement, macros, per-app language memory. Under 2 MB, ready in a minute.",
+      "Open-source Vietnamese input method for macOS, Windows and Linux powered by an ultra-fast Rust engine: Telex & VNI, modern tone placement, macros, per-app language memory. Under 2 MB, ready in a minute.",
     keywords:
-      "Vietnamese input method, macOS, Telex, VNI, Vietnamese keyboard, IME, UVie",
+      "Vietnamese input method, macOS, Windows, Linux, Telex, VNI, Vietnamese keyboard, IME, UVie",
   },
   nav: {
     features: "Features",
@@ -232,10 +253,10 @@ const en: typeof vi = {
     title: "Type Vietnamese",
     titleHighlight: "as fast as you think",
     subtitle:
-      "A Vietnamese input method for macOS powered by an ultra-fast Rust engine - under a microsecond per keystroke. Lightweight, accurate, and respectful of how you type.",
-    ctaDownload: "Download for macOS",
+      "A Vietnamese input method for macOS, Windows and Linux powered by an ultra-fast Rust engine - under a microsecond per keystroke. Lightweight, accurate, and respectful of how you type.",
+    ctaDownload: "Download UVie",
     ctaGithub: "View on GitHub",
-    ctaNote: "macOS 13+ • Apple Silicon & Intel • Free",
+    ctaNote: "macOS 13+ • Windows 10/11 • Debian/Ubuntu & any distro • Free",
     demoLabel: "Live demo",
     demoHint: "The engine processes every keystroke in real time",
   },
@@ -375,14 +396,34 @@ const en: typeof vi = {
           "A V / E icon appears in the menu bar. Tap Fn to switch languages.",
       },
     ],
-    roadmapLabel: "Coming soon",
-    roadmap: [
-      {
-        title: "UVie for Linux",
-        description:
-          "Desktop Linux support (X11/Wayland) is on the roadmap. Watch the GitHub org to get notified.",
-      },
+  },
+  linuxLaunch: {
+    badge: "Now available",
+    title: "UVie for Linux",
+    subtitle:
+      "The same ultra-fast uvie-rs engine on Linux - three integration paths for every setup: a standalone evdev daemon, an IBus engine, and a Fcitx5 addon. Pick one - do not run them together.",
+    cta: "See the apt repo guide",
+    ctaSecondary: "View source",
+    note: "v1.2.0 • Debian/Ubuntu via apt, every other distro via tarball",
+    pathsLabel: "Pick 1 of 3 paths",
+    paths: [
+      { name: "uvie", desc: "daemon + settings UI - standalone, no IM framework needed" },
+      { name: "ibus-uvie", desc: "IBus engine - default on Ubuntu/GNOME" },
+      { name: "fcitx5-uvie", desc: "Fcitx5 addon" },
     ],
+    debianTitle: "Debian / Ubuntu / Mint - via apt",
+    debianSteps: [
+      "curl -fsSL https://uvie-project.github.io/uvie-linux/uvie-repo-key.asc | sudo gpg --dearmor -o /usr/share/keyrings/uvie.gpg",
+      "echo \"deb [signed-by=/usr/share/keyrings/uvie.gpg] https://uvie-project.github.io/uvie-linux stable main\" | sudo tee /etc/apt/sources.list.d/uvie.list",
+      "sudo apt update && sudo apt install uvie   # or ibus-uvie / fcitx5-uvie",
+    ],
+    otherTitle: "Other distros (Fedora, Arch, ...) - tarball",
+    otherSteps: [
+      "tar -xzf uvie-for-linux-x86_64.tar.gz",
+      "cd uvie-for-linux-x86_64 && ./install.sh",
+    ],
+    footnote:
+      "The daemon needs /dev/uinput access and the input group (see README). After installing ibus-uvie/fcitx5-uvie, restart IBus/Fcitx5 so the framework picks up the engine.",
   },
   windowsLaunch: {
     badge: "Just launched",
@@ -391,9 +432,9 @@ const en: typeof vi = {
       "The same ultra-fast uvie-rs engine, now officially on Windows - built in Rust with WinUI 3, as light and open as the macOS app.",
     cta: "Download UVie for Windows",
     ctaSecondary: "View source",
-    note: "v0.1.1 • Windows 10/11 64-bit • Free & open source",
+    note: "v1.3.1 • Windows 10/11 64-bit • Free & open source",
     installNote:
-      "Unzip and run uvie-win.exe - the UVie icon appears in the system tray. Install the Windows App SDK Runtime to open the settings window.",
+      "Install via uvie-win-x64-setup.exe, or unzip and run uvie-win.exe - the UVie icon appears in the system tray. The package is self-contained, no extra runtime needed.",
     bullets: [
       "Full Telex & VNI",
       "Text macros",
@@ -409,6 +450,7 @@ const en: typeof vi = {
     engine: "uvie-rs - Rust engine",
     macApp: "uvie-mac - macOS app",
     winApp: "uvie-win - Windows app",
+    linuxApp: "uvie-linux - Linux app",
     releases: "Releases",
     issues: "Issue tracker",
     license: "MIT OR Apache-2.0",

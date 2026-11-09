@@ -3,6 +3,7 @@ import { getDict } from "@/lib/i18n";
 import { Hero } from "@/components/landing/hero";
 import { Stats, Features, Performance, DownloadSection } from "@/components/landing/sections";
 import { WindowsLaunch } from "@/components/landing/windows-launch";
+import { LinuxLaunch } from "@/components/landing/linux-launch";
 
 const locale = "vi" as const;
 
@@ -17,6 +18,7 @@ export default function HomeVi() {
       <Hero dict={dict} />
       <Stats dict={dict} />
       <WindowsLaunch dict={dict} />
+      <LinuxLaunch dict={dict} />
       <Features dict={dict} />
       <Performance dict={dict} />
       <DownloadSection dict={dict} />
